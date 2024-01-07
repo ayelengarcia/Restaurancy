@@ -75,6 +75,30 @@ const api = {
 
     return restaurant;
   },
+
+  search: async (query: string): Promise<Restaurant[]> => {
+    // Obtenemos los restaurantes
+    const results = await api.list().then((restaurants) =>
+      // Los filtramos por nombre
+      restaurants.filter((restaurant) => {
+        const restaurantName = restaurant.name || "";
+        const lowercaseQuery = query || "";
+
+        return (
+          typeof restaurantName === "string" &&
+          typeof lowercaseQuery === "string" &&
+          restaurantName.toLowerCase().includes(lowercaseQuery.toLowerCase())
+        );
+      }),
+    );
+
+    if (results.length === 0) {
+      throw new Error(`No Matching resutls`);
+    }
+
+    // Los retornamos
+    return results;
+  },
 };
 
 export default api;

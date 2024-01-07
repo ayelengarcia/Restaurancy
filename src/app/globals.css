@@ -10,10 +10,25 @@
 
 .container_header {
   background-color: #2c2a30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title_restaurancy {
   padding: 10px 20px;
+}
+
+.input_search{
+  height: 40px;
+}
+
+.btn_search{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 .container_card {

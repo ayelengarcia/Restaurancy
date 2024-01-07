@@ -3,5 +3,9 @@
 export default function ErrorPage({error}: {error: Error}) {
   console.error(error);
 
-  return <div>Hubo un error intenta de nuevo!</div>;
+  return (
+    <div>
+      <h2>¡No se encontraron resultados!</h2>
+    </div>
+  );
 }
